@@ -8,6 +8,12 @@
     <title>검증 폼</title>
 </head>
 <body>
-
+    <form th:action="@{/validation/items/new}" th:object="${item}" method="post">
+        <input th:field="*{itemName}">
+        <p th:if="${#fields.hasErrors('itemName')}" th:errors="*{itemName}"></p>
+        <input type="number" th:field="*{price}">
+        <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p>
+        <button>등록</button>
+    </form>
 </body>
 </html>
